@@ -67,3 +67,13 @@ src/
 ## License
 
 This project is for educational and demonstration purposes.
+
+
+## Screens
+<img width="1349" height="592" alt="{81577B1B-7187-4B81-8C42-29A0729B837E}" src="https://github.com/user-attachments/assets/72de189a-373a-4231-9c43-8ea3afc7dd5c" />
+
+<img width="1898" height="902" alt="{F93B25B3-13A4-48AA-A25F-5D6F6A58077F}" src="https://github.com/user-attachments/assets/21bb2bec-5c5b-4621-b0e4-0a2aad121044" />
+
+<img width="1902" height="904" alt="{88FAF5D8-B06F-433A-808D-FE4E7E1FDE7C}" src="https://github.com/user-attachments/assets/0b1f9b3f-ccce-4187-b875-222aae953951" />
+
+<img width="1899" height="900" alt="{862B98AA-7E3D-4597-8E96-81D0AF79A66E}" src="https://github.com/user-attachments/assets/00807718-0c9c-4483-9f1b-efece1763bb5" />
