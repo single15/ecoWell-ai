@@ -16,11 +16,7 @@ interface AdminNavBarProps {
 
 const AdminNavBar: React.FC<AdminNavBarProps> = ({ onLogout }) => {
   const location = useLocation();
-  const navLinks = [
-    { label: "Dashboard", to: "/dashboard" },
-    { label: "Reports", to: "/reports" },
-    { label: "Admin Settings", to: "/admin-settings" },
-  ];
+  const navLinks = [{ label: "Dashboard", to: "/dashboard" }];
   return (
     <AppBar
       position="static"

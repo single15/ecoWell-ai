@@ -7,7 +7,6 @@ import { RootState } from "./app/store";
 import AdminLoginPage from "./components/AdminLoginPage";
 import Dashboard from "./components/Dashboard";
 import LandingPage from "./components/LandingPage";
-import ReportPage from "./components/ReportPage";
 import SurveyForm from "./components/SurveyForm";
 import ThankYouPage from "./components/ThankYouPage";
 import { setRole } from "./features/users/userSlice";
@@ -78,7 +77,7 @@ const App: React.FC = () => {
             }
           />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/reports" element={<ReportPage />} />
+          {/* Reports route removed */}
           <Route path="*" element={<Dashboard />} />
         </Routes>
       </Box>
