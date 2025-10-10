@@ -28,12 +28,19 @@ import {
   YAxis,
 } from "recharts";
 import { RootState } from "../app/store";
+import { fetchDashboardStatsRequested } from "../features/dashboard/dashboardSlice";
 import { setRole } from "../features/users/userSlice";
 import { getDummyEmployees } from "../utils/mockEmployees";
 import AdminNavBar from "./AdminNavBar";
 
 const AdminDashboard: React.FC = () => {
   const dispatch = useDispatch();
+  const { stats, loading } = useSelector((s: RootState) => s.dashboard);
+  useEffect(() => {
+    if (!stats && !loading) {
+      dispatch(fetchDashboardStatsRequested());
+    }
+  }, [stats, loading, dispatch]);
   const allEmployeeData = useSelector(
     (state: RootState) => state.survey.responses
   );

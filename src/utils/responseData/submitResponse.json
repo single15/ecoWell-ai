@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "id": 1,
+    "surveyId": 1,
+    "surveyTitle": "Wellness",
+    "employeeId": 1,
+    "employeeName": "Abhijit",
+    "completedAt": "2025-10-10T10:52:50.613Z",
+    "sentimentScore": 0.6,
+    "sentimentLabel": "Positive",
+    "aiAnalysis": "The employee indicates a positive state of wellbeing, reporting that things are going well. The absence of challenges suggests a sense of ease and stability in their current situation."
+  },
+  "errors": [""]
+}

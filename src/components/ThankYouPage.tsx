@@ -1,16 +1,13 @@
 import FileDownloadDoneIcon from "@mui/icons-material/FileDownloadDone";
 import { Box, Button, Paper, Typography } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { RootState } from "../app/store";
 
 const ThankYouPage: React.FC = () => {
   const navigate = useNavigate();
-  const handleDownload = () => {
-    // TODO: Implement download (use jsPDF or similar)
-    alert(
-      "Download functionality will generate a personalized PDF based on your survey."
-    );
-  };
+  const { lastSubmission } = useSelector((state: RootState) => state.survey);
 
   return (
     <Box
@@ -35,29 +32,58 @@ const ThankYouPage: React.FC = () => {
       >
         <FileDownloadDoneIcon sx={{ fontSize: 52, color: "#159957", mb: 1 }} />
         <Typography variant="h4" fontWeight={900} mb={1}>
-          Thank you!
+          Thank you, {lastSubmission?.employeeName}!
         </Typography>
         <Typography variant="h6" color="#187459" mb={3}>
           Thanks for sharing your wellness journey with us.
-          <br />
-          <b>Your report is ready for download.</b>
         </Typography>
-        <Button
-          variant="contained"
-          size="large"
-          sx={{
-            borderRadius: 99,
-            fontSize: 20,
-            background: "linear-gradient(90deg,#159957 0%,#70eadc 100%)",
-            fontWeight: 700,
-            px: 6,
-            py: 1.3,
-          }}
-          onClick={handleDownload}
-        >
-          Download Report
-        </Button>
-        <Box mt={2}>
+
+        {lastSubmission && (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mt: 3,
+            }}
+          >
+            <Box
+              sx={{
+                backgroundColor: "#f0fff9",
+                borderRadius: 4,
+                p: 3,
+                boxShadow: "0 4px 12px rgba(21, 153, 87, 0.2)",
+                textAlign: "center",
+                maxWidth: 400,
+              }}
+            >
+              <Typography variant="h5" fontWeight={700} color="#159957" mb={2}>
+                🌿 AI Wellness Insight
+              </Typography>
+              <Typography variant="body1" mb={2}>
+                <strong>📊 Sentiment Score:</strong>{" "}
+                <span style={{ color: "#159957", fontWeight: 600 }}>
+                  {lastSubmission.sentimentScore}
+                </span>
+              </Typography>
+              <Typography variant="body1" mb={2}>
+                <strong>🧠 Sentiment:</strong>{" "}
+                <span style={{ color: "#187459", fontWeight: 600 }}>
+                  {lastSubmission.sentimentLabel}
+                </span>
+              </Typography>
+              <Typography variant="body2" mb={2}>
+                <strong>🔍 AI Analysis:</strong>
+                <br />
+                <br />
+                <span style={{ fontStyle: "italic", color: "#444" }}>
+                  {lastSubmission.aiAnalysis}
+                </span>
+              </Typography>
+            </Box>
+          </Box>
+        )}
+
+        <Box mt={4}>
           <Button
             variant="text"
             onClick={() => navigate("/")}
