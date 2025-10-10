@@ -2,10 +2,15 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface SurveyState {
   responses: {
-    stressLevel: string;
-    workSatisfaction: string;
-    inclusionFeeling: string;
-  } | null;
+    sleepHours: number;
+    energyLevel: number;
+    stress: string | null;
+    focusLevel: number;
+    physicalActivity: string | null;
+    socialSupport: number;
+    comments: string | null;
+    meetingsCount: number;
+  }[] | null;
 }
 
 const initialState: SurveyState = {
