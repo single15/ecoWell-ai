@@ -22,6 +22,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../app/store";
+import logo from "../assets/logos/logo.jfif";
 import {
   fetchActiveSurveyRequested,
   submitSurveyRequested,
@@ -183,6 +184,9 @@ const SurveyForm: React.FC = () => {
         >
           <HomeOutlinedIcon />
         </IconButton>
+      </Box>
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
+        <img src={logo} alt="EcoWell Nexus logo" height={60} />
       </Box>
       <Typography
         variant="h4"
