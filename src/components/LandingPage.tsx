@@ -2,7 +2,7 @@ import NaturePeopleIcon from "@mui/icons-material/NaturePeople";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logos/logo.jfif";
+import logo from "../assets/logos/logo.png";
 
 const LandingPage: React.FC = () => {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ const LandingPage: React.FC = () => {
         }}
       >
         <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
-          <img src={logo} alt="EcoWell Nexus logo" height={60} />
+          <img src={logo} alt="EcoWell Nexus logo" height={90} />
         </Box>
         <Typography
           variant="h3"
