@@ -9,6 +9,15 @@ const ThankYouPage: React.FC = () => {
   const navigate = useNavigate();
   const { lastSubmission } = useSelector((state: RootState) => state.survey);
 
+  // Determine colors based on sentiment
+  const isPositive =
+    lastSubmission?.sentimentLabel?.toLowerCase() === "positive";
+  const sentimentColor = isPositive ? "#187459" : "#d32f2f";
+  const boxBgColor = isPositive ? "#f0fff9" : "#fff5f5";
+  const boxShadowColor = isPositive
+    ? "rgba(21, 153, 87, 0.2)"
+    : "rgba(211, 47, 47, 0.2)";
+
   return (
     <Box
       sx={{
@@ -48,15 +57,20 @@ const ThankYouPage: React.FC = () => {
           >
             <Box
               sx={{
-                backgroundColor: "#f0fff9",
+                backgroundColor: boxBgColor,
                 borderRadius: 4,
                 p: 3,
-                boxShadow: "0 4px 12px rgba(21, 153, 87, 0.2)",
+                boxShadow: `0 4px 12px ${boxShadowColor}`,
                 textAlign: "center",
                 maxWidth: 400,
               }}
             >
-              <Typography variant="h5" fontWeight={700} color="#159957" mb={2}>
+              <Typography
+                variant="h5"
+                fontWeight={700}
+                color={sentimentColor}
+                mb={2}
+              >
                 🌿 AI Wellness Insight
               </Typography>
               <Typography variant="body1" mb={2}>
@@ -67,7 +81,7 @@ const ThankYouPage: React.FC = () => {
               </Typography>
               <Typography variant="body1" mb={2}>
                 <strong>🧠 Sentiment:</strong>{" "}
-                <span style={{ color: "#187459", fontWeight: 600 }}>
+                <span style={{ color: sentimentColor, fontWeight: 600 }}>
                   {lastSubmission.sentimentLabel}
                 </span>
               </Typography>

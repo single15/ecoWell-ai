@@ -16,14 +16,24 @@ function getBaseUrl(): string {
 }
 
 async function http<T>(input: RequestInfo, init?: RequestInit): Promise<T> {
+  const url = typeof input === "string" ? new URL(input) : null;
+
+  const headers = {
+    "Content-Type": "application/json",
+    ...(init?.headers || {}),
+    Host: "unwailed-kisha-prebarbarously.ngrok-free.dev",
+  };
+
   const resp = await fetch(input, {
-    headers: { "Content-Type": "application/json", ...(init?.headers || {}) },
+    headers,
     ...init,
   });
+
   if (!resp.ok) {
     const text = await resp.text().catch(() => "");
     throw new Error(`HTTP ${resp.status}: ${text}`);
   }
+
   return (await resp.json()) as T;
 }
 
