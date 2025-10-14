@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { SurveysApi } from "../../utils/api";
+import { MockSurveysApi } from "../../utils/api";
 import {
   SurveyDtoApiResponse,
   SurveyResponseDtoApiResponse,
@@ -17,7 +17,7 @@ import {
 function* fetchActiveSurvey(): Generator<unknown, void, unknown> {
   try {
     const data: SurveyDtoApiResponse = (yield call(
-      SurveysApi.getActive
+      MockSurveysApi.getActive
     )) as SurveyDtoApiResponse;
     if (data?.success) {
       yield put(fetchActiveSurveySucceeded(data.data ?? null));
@@ -36,7 +36,7 @@ function* submitSurvey(
 ): Generator<unknown, void, unknown> {
   try {
     const resp: SurveyResponseDtoApiResponse = (yield call(
-      SurveysApi.submit,
+      MockSurveysApi.submit,
       action.payload
     )) as SurveyResponseDtoApiResponse;
     if (resp?.success && resp.data) {

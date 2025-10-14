@@ -1,22 +1,19 @@
-import FileDownloadDoneIcon from "@mui/icons-material/FileDownloadDone";
 import { Box, Button, Paper, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../app/store";
+import logo from "../assets/logos/logo.png";
 
 const ThankYouPage: React.FC = () => {
   const navigate = useNavigate();
   const { lastSubmission } = useSelector((state: RootState) => state.survey);
 
-  // Determine colors based on sentiment
-  const isPositive =
-    lastSubmission?.sentimentLabel?.toLowerCase() === "positive";
-  const sentimentColor = isPositive ? "#187459" : "#d32f2f";
-  const boxBgColor = isPositive ? "#f0fff9" : "#fff5f5";
-  const boxShadowColor = isPositive
-    ? "rgba(21, 153, 87, 0.2)"
-    : "rgba(211, 47, 47, 0.2)";
+  useEffect(() => {
+    if (!lastSubmission?.employeeName) {
+      navigate("/");
+    }
+  }, [lastSubmission?.employeeName, navigate]);
 
   return (
     <Box
@@ -39,64 +36,18 @@ const ThankYouPage: React.FC = () => {
           boxShadow: "0 7px 24px #70eadc44",
         }}
       >
-        <FileDownloadDoneIcon sx={{ fontSize: 52, color: "#159957", mb: 1 }} />
+        <img
+          src={logo}
+          alt="ecoWell Logo"
+          style={{ width: 120, marginBottom: 16 }}
+        />
+        {/*<FileDownloadDoneIcon sx={{ fontSize: 52, color: "#159957", mb: 1 }} />*/}
         <Typography variant="h4" fontWeight={900} mb={1}>
           Thank you, {lastSubmission?.employeeName}!
         </Typography>
         <Typography variant="h6" color="#187459" mb={3}>
           Thanks for sharing your wellness journey with us.
         </Typography>
-
-        {lastSubmission && (
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              mt: 3,
-            }}
-          >
-            <Box
-              sx={{
-                backgroundColor: boxBgColor,
-                borderRadius: 4,
-                p: 3,
-                boxShadow: `0 4px 12px ${boxShadowColor}`,
-                textAlign: "center",
-                maxWidth: 400,
-              }}
-            >
-              <Typography
-                variant="h5"
-                fontWeight={700}
-                color={sentimentColor}
-                mb={2}
-              >
-                🌿 AI Wellness Insight
-              </Typography>
-              <Typography variant="body1" mb={2}>
-                <strong>📊 Sentiment Score:</strong>{" "}
-                <span style={{ color: "#159957", fontWeight: 600 }}>
-                  {lastSubmission.sentimentScore}
-                </span>
-              </Typography>
-              <Typography variant="body1" mb={2}>
-                <strong>🧠 Sentiment:</strong>{" "}
-                <span style={{ color: sentimentColor, fontWeight: 600 }}>
-                  {lastSubmission.sentimentLabel}
-                </span>
-              </Typography>
-              <Typography variant="body2" mb={2}>
-                <strong>🔍 AI Analysis:</strong>
-                <br />
-                <br />
-                <span style={{ fontStyle: "italic", color: "#444" }}>
-                  {lastSubmission.aiAnalysis}
-                </span>
-              </Typography>
-            </Box>
-          </Box>
-        )}
-
         <Box mt={4}>
           <Button
             variant="text"

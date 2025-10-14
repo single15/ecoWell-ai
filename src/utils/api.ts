@@ -1,5 +1,4 @@
 import {
-  DashboardStatsDtoApiResponse,
   SubmitSurveyRequest,
   SurveyDtoApiResponse,
   SurveyResponseDtoApiResponse,
@@ -64,12 +63,5 @@ export const MockSurveysApi = {
     request: SubmitSurveyRequest
   ): Promise<SurveyResponseDtoApiResponse> {
     return Promise.resolve(submitResponse as SurveyResponseDtoApiResponse);
-  },
-};
-
-export const DashboardApi = {
-  async getStats(): Promise<DashboardStatsDtoApiResponse> {
-    const url = `${getBaseUrl()}/DashboardApi/stats`;
-    return await http<DashboardStatsDtoApiResponse>(url, { method: "GET" });
   },
 };
