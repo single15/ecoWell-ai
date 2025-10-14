@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "id": 1,
+    "surveyId": 1,
+    "surveyTitle": "Wellness",
+    "employeeId": 1,
+    "employeeName": "Swapnil",
+    "completedAt": "2025-10-10T10:52:50.613Z",
+    "sentimentScore": 0.6,
+    "sentimentLabel": "Negative",
+    "aiAnalysis": "The employee indicates a negative state of wellbeing, reporting that things are not going well. The presence of challenges suggests a sense of stress and difficulty in their current situation."
+  },
+  "errors": [""]
+}

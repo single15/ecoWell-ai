@@ -1,0 +1,55 @@
+{
+  "success": true,
+  "message": "Active survey retrieved successfully",
+  "data": {
+    "id": 1,
+    "title": "Weekly Wellness Check-In",
+    "description": "A brief survey to understand your current wellbeing and work experience",
+    "isActive": true,
+    "questions": [
+      {
+        "id": 1,
+        "questionText": "How would you rate your overall wellbeing this week?",
+        "type": "Rating",
+        "orderIndex": 1,
+        "options": null
+      },
+      {
+        "id": 2,
+        "questionText": "How would you describe your current stress level?",
+        "type": "MultipleChoice",
+        "orderIndex": 2,
+        "options": "[\"Very Low\",\"Low\",\"Moderate\",\"High\",\"Very High\"]"
+      },
+      {
+        "id": 3,
+        "questionText": "Are you able to maintain a healthy work-life balance?",
+        "type": "YesNo",
+        "orderIndex": 3,
+        "options": null
+      },
+      {
+        "id": 4,
+        "questionText": "What's going well for you at work this week?",
+        "type": "Text",
+        "orderIndex": 4,
+        "options": null
+      },
+      {
+        "id": 5,
+        "questionText": "What challenges are you facing?",
+        "type": "Text",
+        "orderIndex": 5,
+        "options": null
+      },
+      {
+        "id": 6,
+        "questionText": "How satisfied are you with team communication?",
+        "type": "Rating",
+        "orderIndex": 6,
+        "options": null
+      }
+    ]
+  },
+  "errors": []
+}

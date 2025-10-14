@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import surveyReducer from "../features/survey/surveySlice";
-import rootSage from "../root/rootSaga";
+import rootSage from "./rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
